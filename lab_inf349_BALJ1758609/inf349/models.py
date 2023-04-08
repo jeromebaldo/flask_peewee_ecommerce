@@ -30,9 +30,12 @@ class Order(BaseModel):
     transaction = JSONField(default={})
     product = JSONField(default={})
     shipping_price= FloatField(default=0)
+    
+    
     #CALCUL DU total_price 
     def to_totalPrice(self, price, quantity):
-        self.total_price = price*quantity 
+        self.total_price = price*quantity
+        
     #CALCUL DU shipping_price multiplie le poid du produit avec quantite 
     #selon la fourchette ajoute les frais d'expédition 
     def to_shippingPrice(self,weight,quantity):
